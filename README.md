@@ -59,7 +59,7 @@ Ter em conta que:
 Na REST API teremos um CRUD com os seguintes endpoints:
 
    - `GET /`: Retornar uma mensagem "REST Back-end Challenge 20201209 Running"
-   - `PUT /users/:userId`: Será responsável por receber atualizações realizadas
+   - `PUT /users/:userId`: Será responsável por receber atualizações dso dados
    - `DELETE /users/:userId`: Remover o user da base
    - `GET /users/:userId`: Obter a informação somente de um user da base de dados
    - `GET /users`: Listar todos os usuários da base de dados
