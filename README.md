@@ -28,7 +28,7 @@ O seu objetivo nesse projeto, é trabalhar no desenvolvimento da REST API da emp
 Para a definição do modelo, consultar o arquivo [users.json](./users.json) que foi exportado do Random Users.
 
 - `imported_t`: campo do tipo Date com a dia e hora que foi importado;
-- `status`: campo do tipo Enum com os possíveis valores draft, trash e published;
+- `status`: campo do tipo Enum com os possíveis valores trash e published para controle de importação e do CRUD;
 
 ### Sistema do CRON
 
