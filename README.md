@@ -1,75 +1,72 @@
-# Back-end Challenge 🏅 2021
+# Back-end Challenge 🏅 2021 - Space Flight News
 
 ## Introdução
 
-Este é um desafio para testar seus conhecimentos em Back-end;
+Este é um desafio para que possamos ver as suas habilidades como Back-end Developer.
 
-O objetivo é avaliar a sua forma de estruturação e autonomia em decisões para construir algo escalável utilizando um framework moderno.
-
-Você está livre para usar uma das seguintes tecnologias para desenvolver o back-end da solução deste tech challenge: **Node.js** ou **C# .NET Core** ou **PHP Laravel** ou **RubyOnRails** ou **Go Lang** ou **Python FastAPI** ou **Kotlin SpringBoot** ou **Java** ou **Rust**.
+Nesse desafio você deverá desenvolver uma REST API que utilizará os dados do projeto [Space Flight News](https://api.spaceflightnewsapi.net/v3/documentation), uma API pública com informações relacionadas a voos espaciais. O projeto a ser desenvolvido por você tem como objetivo criar a API permitindo assim a conexão de outras aplicações.
 
 [SPOILER] As instruções de entrega e apresentação do challenge estão no final deste Readme (=
 
-## Case
+### Instruções iniciais obrigatórias
 
-A empresa Pharma Inc, está trabalhando em um projeto em colaboração com sua base de clientes para facilitar a gestão e visualização da informação dos seus pacientes de maneira simples e objetiva em um Dashboard onde podem listar, filtrar e expandir os dados disponíveis.
-O seu objetivo nesse projeto, é trabalhar no desenvolvimento da REST API da empresa Pharma Inc seguindo os requisitos propostos neste desafio.
-
-## Recursos
-
-1. Desenvolver REST API importando os dados do projeto: https://randomuser.me/documentation
-2. Trabalhar em um [FORK](https://lab.coodesh.com/help/gitlab-basics/fork-project.md) deste repositório em seu usuário ou utilizar um repositório em seu github pessoal (não esqueça de colocar no readme a referência a este challenge)
-
-
-## API
+- Trabalhar em um repositório em seu usuário ou utilizar o seu github pessoal (não esqueça de colocar no readme a referência a este challenge);
+- O projeto deverá ser desenvolvido com uma das tecnologias a seguir: **Node.js | C# .NET Core | PHP Laravel | RubyOnRails | Go Lang | Python FastAPI | SpringBoot Kotlin | Rust**;
+- Criar um banco de dados grátis **MongoDB** usando Atlas: https://www.mongodb.com/cloud/atlas ou banco de dados grátis **MySQL** no Heroku: https://elements.heroku.com/addons/jawsdb ou banco de dados grátis **Postgres** no Heroku: https://elements.heroku.com/addons/heroku-postgresql; (Recomendável usar Drivers oficiais para integração com o DB)
 
 ### Modelo de Dados:
 
-Para a definição do modelo, consultar o arquivo [users.json](./users.json) que foi exportado do Random Users.
+Para a definição do modelo consulte a rota [GET]/articles da API, nesta rota você pode ver a estrutura como o exemplo:
 
-- `imported_t`: campo do tipo Date com a dia e hora que foi importado;
-- `status`: campo do tipo Enum com os possíveis valores trash e published para controle de importação e do CRUD;
+```json
+{
+    "id": 0,
+    "featured": false,
+    "title": "string",
+    "url": "string",
+    "imageUrl": "string",
+    "newsSite": "string",
+    "summary": "string",
+    "publishedAt": "string",
+    "launches": [
+      {
+        "id": "string",
+        "provider": "string"
+      }
+    ],
+    "events": [
+      {
+        "id": "string",
+        "provider": "string"
+      }
+    ]
+  }
+```
 
-### Sistema do CRON
+### Back-End:
 
-Para prosseguir com o desafio, precisaremos criar na API um sistema de atualização que vai importar os dados para a Base de Dados com a versão mais recente do [Random User](https://randomuser.me/documentation#format) uma vez ao día. Adicionar aos arquivos de configuração o melhor horário para executar a importação.
+Nessa etapa você deverá construir uma API Restful com as melhores práticas de desenvolvimento, baseada na API [Space Flight News](https://api.spaceflightnewsapi.net/v3/documentation). Para isso você deve executar os passos a seguir:
 
-A lista de arquivos do Random User, pode ser encontrada em: 
+**Obrigatório 1** - Você deverá desenvolver as seguintes rotas:
 
-- https://randomuser.me/api
+- `[GET]/: ` Retornar um Status: 200 e uma Mensagem "Back-end Challenge 2021 🏅 - Space Flight News"
+- `[GET]/articles/:`   Listar todos os artigos da base de dados, utilizar o sistema de paginação para não sobrecarregar a REQUEST
+- `[GET]/articles/{id}:` Obter a informação somente de um artigo
+- `[POST]/articles/:` Adicionar um novo artigo
+- `[PUT]/articles/{id}:` Atualizar um artigo baseado no `id`
+- `[DELETE]/articles/{id}:` Remover um artigo baseado no `id`
 
-Escolher o formato que seja mais cômodo para importar todos os dados para a Base de Dados, o Random User tem os seguintes formatos:
+**Obrigatório 2** - Para alimentar o seu banco de dados você deve criar um script para armazenar os dados de todos os artigos na Space Flight News API. 
 
-- JSON (default)
-- PrettyJSON or pretty
-- CSV
-- YAML
-- XML
+**Obrigatório 3** - Além disso você precisa desenvolver um CRON para ser executado diariamente às 9h e armazenar em seu os novos artigos ao seu banco de dados. (Para essa tarefa você poderá alterar o seu modelo de dados) 
 
-Ter em conta que:
+**Diferencial 1** Configurar Docker no Projeto para facilitar o Deploy da equipe de DevOps;
 
-- Todos os produtos deverão ter os campos personalizados `imported_t` e `status`.
-- Importar os dados de maneira paginada para não sobrecargar a API do Random Users. Por exemplo, de 100 em usuários.
-- Limitar a importação a somente 2000 usuarios;
+**Diferencial 2** Configurar um sistema de alerta se houver algum falha durante a sincronização dos artigos;
 
+**Diferencial 3** Descrever a documentação da API utilizando o conceito de Open API 3.0;
 
-### A REST API
-
-
-Na REST API teremos um CRUD com os seguintes endpoints:
-
-   - `GET /`: Retornar uma mensagem "REST Back-end Challenge 20201209 Running"
-   - `PUT /users/:userId`: Será responsável por receber atualizações dso dados
-   - `DELETE /users/:userId`: Remover o user da base
-   - `GET /users/:userId`: Obter a informação somente de um user da base de dados
-   - `GET /users`: Listar todos os usuários da base de dados
-
-### Extras
-
-- **Diferencial 1** Escrever Unit Test para os endpoints da REST API
-- **Diferencial 2** Executar o projeto usando Docker
-- **Diferencial 3** Escrever um esquema de segurança utilizando `API KEY` nos endpoints. Ref: https://learning.postman.com/docs/sending-requests/authorization/#api-key
-- **Diferencial 4** Descrever a documentação da API utilizando o conceito de Open API 3.0;
+**Diferencial 4** Escrever Unit Tests para os endpoints da API;
 
 ## Readme do Repositório
 
@@ -78,32 +75,30 @@ Na REST API teremos um CRUD com os seguintes endpoints:
 - Deve conter uma lista com linguagem, framework e/ou tecnologias usadas
 - Como instalar e usar o projeto (instruções)
 - Não esqueça o [.gitignore](https://www.toptal.com/developers/gitignore)
-- Se está usando github pessoal, referencie que é um challenge by coodesh 
+- Se está usando github pessoal, referencie que é um challenge by coodesh:  
+
+>  This is a challenge by [Coodesh](https://coodesh.com/)
 
 ## Finalização e Instruções para a Apresentação
 
 Avisar sobre a finalização e enviar para correção.
 
-1. Confira se respondeu o Scorecard Back-End;
-2. Verique se o Readme está bom e faça o commit final em seu repositório;
-3. Acesse: [https://coodesh.com/review-challenge](https://coodesh.com/review-challenge);
-4. Coloque seu nome completo; 
-5. Coloque seu e-mail;
-6. Adicione o repositório com a sua solução;
-7. Confira a vaga desejada;
+1. Confira se você respondeu o Scorecard Back-end;
+2. Crie uma conta na plataforma: https://www.loom.com/ e instale o Desktop App ou Extensão no Chrome: https://www.loom.com/download
+3. Grave um vídeo, com no máximo 5 minutos, com a apresentação do seu projeto. Foque nos pontos obrigatórios e diferenciais quando for apresentar.
+4. Adicione o link da apresentação do seu projeto no README.md.
+5. Verifique se o Readme está bom e faça o commit final em seu repositório;
+6. Acesse: [https://coodesh.com/challenges/review](https://coodesh.com/challenges/review);
+7. Coloque seu nome completo; 
+8. Coloque seu e-mail;
+9. Adicione o repositório com a sua solução;
+10. Adicione o link da apresentação do seu projeto
+11. Confira a vaga desejada;
 
 ![Solicitar Correção](https://res.cloudinary.com/coodesh/image/upload/v1612571243/coodesh-teams/challenges/repo.gif)
 
-8. Envie e aguarde as instruções para apresentação da sua solução
-
-## Instruções para se preparar para a Apresentação:
-
-1. Aguarde o e-mail com as instruções de apresentação 
-2. Enquanto isso, crie uma conta na plataforma: https://www.loom.com/ e instale o Desktop App ou Extensão no Chrome: https://www.loom.com/download 
-3. DICA: Será necessário compartilhar a tela durante a gravação ou vídeo chamada. Deixe todos os projetos de solução previamente abertos em seu computador antes de iniciar a gravação ou chamanda de vídeo. Ambientes configurados e prontos para rodar.
-4. Prepara-se pois você será questionado sobre cada etapa e decisão do Challenge. Prepare uma lista de perguntas, dúvidas, sugestões de melhorias e feedbacks (caso tenha).
+12. Envie e aguarde as instruções para seguir no processo. Sucesso e boa sorte. =)
 
 ## Suporte
 
 Use o nosso canal no slack: http://bit.ly/32CuOMy para tirar dúvidas sobre o processo ou envie um e-mail para contato@coodesh.com.
-
