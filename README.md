@@ -83,21 +83,15 @@ Nessa etapa você deverá construir uma API Restful com as melhores práticas de
 
 Avisar sobre a finalização e enviar para correção.
 
-1. Confira se você respondeu o Scorecard Back-end;
-2. Crie uma conta na plataforma: https://www.loom.com/ e instale o Desktop App ou Extensão no Chrome: https://www.loom.com/download
-3. Grave um vídeo, com no máximo 5 minutos, com a apresentação do seu projeto. Foque nos pontos obrigatórios e diferenciais quando for apresentar.
-4. Adicione o link da apresentação do seu projeto no README.md.
-5. Verifique se o Readme está bom e faça o commit final em seu repositório;
-6. Acesse: [https://coodesh.com/challenges/review](https://coodesh.com/challenges/review);
-7. Coloque seu nome completo; 
-8. Coloque seu e-mail;
-9. Adicione o repositório com a sua solução;
-10. Adicione o link da apresentação do seu projeto
-11. Confira a vaga desejada;
-
-![Solicitar Correção](https://res.cloudinary.com/coodesh/image/upload/v1612571243/coodesh-teams/challenges/repo.gif)
-
-12. Envie e aguarde as instruções para seguir no processo. Sucesso e boa sorte. =)
+1. Confira se você respondeu o Scorecard da Vaga que chegou no seu email;
+2. Confira se você respondeu o Mapeamento Comportamental que chegou no seu email;
+3. Acesse: [https://coodesh.com/challenges/review](https://coodesh.com/challenges/review);
+4. Adicione o repositório com a sua solução;
+5. Grave um vídeo, com no máximo 5 minutos, com a apresentação do seu projeto. Foque em pontos obrigatórios e diferenciais quando for apresentar.
+6. Adicione o link da apresentação do seu projeto no README.md.
+7. Verifique se o Readme está bom e faça o commit final em seu repositório;
+8. Confira a vaga desejada;
+9. Envie e aguarde as instruções para seguir no processo. Sucesso e boa sorte. =)
 
 ## Suporte
 
