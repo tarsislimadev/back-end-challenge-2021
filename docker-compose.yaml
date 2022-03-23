@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+
+  database:
+    build: './database'
+
+  app:
+    build: './app'
+    volumes:
+      - './app:/app'
+      - './data:/data'
+    ports:
+      - '2200:80'
