@@ -4,6 +4,8 @@ services:
 
   database:
     build: './database'
+    environment:
+      - 'POSTGRES_PASSWORD=database'
 
   app:
     build: './app'
