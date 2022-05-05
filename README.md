@@ -5,7 +5,7 @@ Este é o desafio para que VOCÊS possam ver as MINHAS habilidades como [Back-en
 
 ## Stack
 
-* Node.js v16.14 - no (or own) framework
+* Node.js v16.15 - no (or own) framework
 * PostgreSQL v14.2
 * Docker (+ Docker Compose)
 

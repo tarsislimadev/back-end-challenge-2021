@@ -1,5 +1,5 @@
 
-FROM node:lts-alpine
+FROM node:16.15-alpine
 
 ENV HTTP_PORT=80
 
