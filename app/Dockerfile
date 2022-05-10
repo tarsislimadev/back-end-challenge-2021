@@ -9,4 +9,6 @@ WORKDIR /app
 
 COPY . .
 
-CMD node .
+USER node
+
+CMD npx nodemon .
