@@ -11,21 +11,7 @@ Este é o desafio para que VOCÊS possam ver as MINHAS habilidades como [Back-en
 
 ## How to - Production
 
-Setup - PostgreSQL
-
-```sh
-docker run --rm -d --name psql_challenge tmvdl/backend_challenge:postgresql
-# or
-docker run --rm -d --name psql_challenge tmvdl/backend_challenge:database
-```
-
-Setup - Back-End
-
-```sh
-docker run --rm -d --name backend_challenge tmvdl/backend_challenge
-# or
-docker run --rm -d --name backend_challenge tmvdl/backend_challenge:app
-```
+TODO
 
 ## How to - Development
 
@@ -34,5 +20,3 @@ TODO
 ## License
 
 [MIT](LICENSE)
-
-- Não esqueça o [.gitignore](https://www.toptal.com/developers/gitignore)
