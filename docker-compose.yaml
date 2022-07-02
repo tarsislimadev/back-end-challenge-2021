@@ -2,15 +2,10 @@ version: '3'
 
 services:
 
-  database:
-    build: './database'
-    environment:
-      - 'POSTGRES_PASSWORD=database'
-
-  app:
-    build: './app'
+  api:
+    build: './src'
     volumes:
-      - './app:/app'
+      - './src:/api'
       - './data:/data'
     ports:
-      - '2200:80'
+      - '80:80'
